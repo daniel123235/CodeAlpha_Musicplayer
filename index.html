@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Music Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="player" aria-label="Music player">
+  <section class="now">
+    <p class="label">Now playing</p>
+    <h1 id="title">Title</h1>
+    <p id="artist">Artist</p>
+  </section>
+
+  <section class="progress">
+    <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+    <div class="times"><span id="current">0:00</span><span id="duration">0:00</span></div>
+  </section>
+
+  <section class="controls">
+    <button id="prev" aria-label="Previous track">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9.5 12z"/></svg>
+    </button>
+    <button id="play" class="main" aria-label="Play">
+      <svg id="icon-play" viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M7 4.5v15L19 12z"/></svg>
+      <svg id="icon-pause" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" hidden><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    </button>
+    <button id="next" aria-label="Next track">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l10.5-7z"/></svg>
+    </button>
+  </section>
+
+  <section class="extras">
+    <label class="volume">
+      <span>Volume</span>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+      <output id="volume-out">80</output>
+    </label>
+    <button id="autoplay" class="toggle" aria-pressed="true">Autoplay: on</button>
+  </section>
+
+  <section class="list">
+    <h2>Playlist</h2>
+    <ol id="playlist"></ol>
+  </section>
+
+  <audio id="audio" preload="metadata"></audio>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
